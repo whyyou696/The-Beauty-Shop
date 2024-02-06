@@ -1,22 +1,43 @@
-"use client"
+import CarouselHome from "@/components/CarouselHome";
+import Footer from "@/components/Footer";
+import NavbarLink from "@/components/NavbarLink";
+import ProductCard from "@/components/ProductCard";
 
-import CarouselHome from "@/components/CarouselHome"
-import NavbarLink from "@/components/NavbarLink"
+interface Products {
+  id: string;
+  name: string;
+  price: number;
+  thumbnail: string;
+  excerpt: string;
+  description: string;
+  slug: string;
+  tags: string[];
+  images: string[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+async function getProducts(): Promise<Products[]> {
+  const response = await fetch("http://localhost:3001/products");
+  return response.json();
+}
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+  // console.log(products, "<<< getProducts");
   return (
     <>
-      <NavbarLink/>
-      <CarouselHome/>
-      <div className="hero min-h-screen bg-white">
-        <div className="hero-content text-center text-black">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Hello there</h1>
-            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
+      <div className="bg-white">
+        <NavbarLink />
+        <CarouselHome />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+          {products.map((product) => (
+            <ProductCard product={product} />
+          ))}
         </div>
       </div>
+      <div className="bg-white p-6">
+        <Footer />
+      </div>
     </>
-  )
+  );
 }

@@ -1,25 +1,32 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import logo from '@/assets/logo2.png';
+import Image from 'next/image'; // Import Image dari Next.js untuk optimalisasi gambar
+import logo from '@/assets/logo1.png'; // Gunakan path relatif dari folder public
+import logo2 from "@/assets/logo2.png"
 
 export default function NavbarLink () {
   return (
-    <nav className="bg-white h-20"> {/* Mengubah tinggi navbar menjadi 24 */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-full"> {/* Menyesuaikan tinggi agar navbar penuh */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0 mt-8 mb-8">
-              <Image src={logo} alt="Logo" width={120} height={120} /> {/* Mengubah ukuran logo */}
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link href="/" className="text-black hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</Link>
-                <Link href="/about" className="text-black hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">About</Link>
-              </div>
-            </div>
-          </div>
-        </div>
+    <nav className="bg-gradient-to-r from-white to-emerald-200  p-4 fixed w-full top-0 shadow-xl">
+    <div className="container mx-auto flex justify-between items-center">
+      <div className="flex items-center">
+        <Image src={logo} alt="Logo" className="w-20 h-20" />
       </div>
-    </nav>
-  );
+      <div className="items-center">
+        <Image src={logo2} alt="Logo" className="w-20 h-20" />
+      </div>
+      <div className="flex items-center">
+        <Link href="/about"
+          className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+        >
+          About
+        </Link>
+
+        <button
+          className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+);
 };

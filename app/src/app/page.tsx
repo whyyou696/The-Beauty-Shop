@@ -16,6 +16,7 @@ interface Products {
   createdAt: Date;
   updatedAt: Date;
 }
+
 async function getProducts(): Promise<Products[]> {
   const response = await fetch("http://localhost:3001/products");
   return response.json();

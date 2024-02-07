@@ -15,22 +15,22 @@ export default function NavbarLink () {
         </div>
         <div className="flex items-center">
         <Link href="/products"
-            className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"
+            className="text-emerald-700 hover:text-emerald-400 text-white font-bold focus:outline-none focus:shadow-outline transition duration-300 ml-4"
           >
             Products
           </Link>
           <Link href="/wishlist"
-            className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"
+            className="text-emerald-700 hover:text-emerald-400 text-white font-bold focus:outline-none focus:shadow-outline transition duration-300 ml-4"
           >
             Wishlist
           </Link>
           <Link href="/about">
-            <div className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"> {/* Gunakan tautan a */}
+            <div className="text-emerald-700 hover:text-emerald-400 text-white font-bold focus:outline-none focus:shadow-outline transition duration-300 ml-4"> {/* Gunakan tautan a */}
               About
             </div>
           </Link>
           <Link href="/login">
-            <div className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4">
+            <div className="text-red-500 hover:text-emerald-400 text-white font-bold focus:outline-none focus:shadow-outline transition duration-300 ml-4">
               Logout
             </div>
           </Link>

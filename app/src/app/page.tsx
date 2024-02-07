@@ -1,7 +1,7 @@
-import CarouselHome from "@/components/CarouselHome";
-import Footer from "@/components/Footer";
-import NavbarLink from "@/components/NavbarLink";
-import ProductCard from "@/components/ProductCard";
+import CarouselHome from "@/components/carousel/page";
+import Footer from "@/components/footer/page";
+import NavbarLink from "@/components/navbar/page";
+import ProductCard from "@/components/proudctcard/page";
 
 interface Products {
   id: string;

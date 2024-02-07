@@ -1,9 +1,16 @@
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo1.png";
 
-export default function Register () {
+export default function Register() {
   return (
-    <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-r from-emerald-400 via-emerald-200 to-emerald-100">
-      <form className="login-form bg-white p-20 rounded shadow-xl bg-opacity-30 backdrop-blur-md">
-        <h2 className="text-2xl font-bold mb-4 text-emerald-700 text-center">
+    <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-l from-emerald-400 via-emerald-200 to-emerald-100">
+      <form className="login-form bg-white p-20 rounded shadow-xl rounded ">
+        {/* Logo di sini */}
+        <div className="mb-4 flex justify-center">
+          <Image src={logo} alt="Logo" className="w-20 h-20" />
+        </div>
+        <h2 className="text-3xl font-bold mb-4 text-emerald-700 text-center">
           Register
         </h2>
         <div className="mb-4">
@@ -57,10 +64,15 @@ export default function Register () {
         >
           Register
         </button>
-        <p className="text-center text-gray-900 text-sm mt-4">
+        <p className="text-center text-gray-900 text-sm mt-10">
           Already have an account?{" "}
+          <Link href="/login">
+            <p className="text-center text-emerald-800 text-sm hover:text-emerald-500">
+              Login.
+            </p>
+          </Link>
         </p>
       </form>
     </div>
   );
-};
+}

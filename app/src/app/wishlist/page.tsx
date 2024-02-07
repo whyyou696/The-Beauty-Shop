@@ -1,6 +1,6 @@
 'use client';
-import Footer from "@/components/footer/page";
-import NavbarLink from "@/components/navbar/page";
+import Footer from "@/components/Footer";
+import NavbarLink from "@/components/NavbarLink";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';

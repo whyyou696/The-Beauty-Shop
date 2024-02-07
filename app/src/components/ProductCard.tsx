@@ -1,23 +1,11 @@
 'use client';
-
 import { FaShoppingCart, FaInfoCircle } from "react-icons/fa";
 import { useState } from "react";
+import Link from 'next/link';
+import ProductsType from "@/app/model/product";
 
-interface Products {
-  id: string;
-  name: string;
-  price: number;
-  thumbnail: string;
-  excerpt: string;
-  description: string;
-  slug: string;
-  tags: string[];
-  images: string[];
-  createdAt: Date;
-  updatedAt: Date;
-}
 
-const ProductCard = ({ product }: { product: Products }) => {
+const ProductCard = ({ product }: { product: ProductsType }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const handleAddToCart = () => {
@@ -41,10 +29,12 @@ const ProductCard = ({ product }: { product: Products }) => {
         <p className="product-excerpt text-sm text-gray-600 mb-4">{product.excerpt}</p>
         <p className="product-price text-emerald-400 font-semibold mb-2">Rp.{product.price}</p>
         <div className="flex justify-between mb-2">
-          <button className="see-details-btn bg-emerald-700 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-300 flex items-center justify-center">
-            <FaInfoCircle className="mr-2" />
-            <span>See Details</span>
-          </button>
+          <Link href={`/detail/${product.id}`}>
+            <button className="see-details-btn bg-emerald-700 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-300 flex items-center justify-center">
+              <FaInfoCircle className="mr-2" />
+              <span>See Details</span>
+            </button>
+          </Link>
           <button
             onClick={handleAddToCart}
             disabled={isAddedToCart}

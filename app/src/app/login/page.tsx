@@ -1,11 +1,23 @@
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/assets/logo1.png";
+
 export default function Login() {
   return (
-    <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-r from-emerald-400 via-emerald-200 to-emerald-100">
-      <form className="login-form bg-white p-20 rounded shadow-md bg-opacity-30 backdrop-blur-md">
+    <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-l from-emerald-400 via-emerald-200 to-emerald-100">
+      <form className="login-form bg-white p-20 rounded shadow-md backdrop-blur-md rounded">
+        {/* Logo di sini */}
+        <div className="mb-4 flex justify-center">
+          <Image
+            src={logo}
+            alt="Logo"
+            className="w-20 h-20"
+          />
+        </div>
         <h1 className="text-3xl font-bold mb-4 text-emerald-700 text-center">
           Login
         </h1>
-        <div className="mb-4">
+        <div className="mb-4 mt-10">
           <label
             htmlFor="email"
             className="block text-emerald-700 text-sm font-bold mb-2"
@@ -33,15 +45,23 @@ export default function Login() {
             className="border rounded w-full py-2 px-3 text-white"
           />
         </div>
+        <div className="mb-4 justify-center items-center">
         <button
           type="submit"
-          className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+          className="bg-emerald-700 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 align-items-center"
         >
           Login
         </button>
-        <p className="text-center text-gray-900 text-sm mt-4">
+        <p className="text-center text-gray-900 text-sm mt-16">
           Don't have an account?{" "}
         </p>
+        
+        <Link href="/">
+        <p className="text-center text-emerald-800 text-sm hover:text-emerald-500">
+          Register Now.
+          </p>
+          </Link>
+        </div>
       </form>
     </div>
   );

@@ -14,8 +14,13 @@ export default function NavbarLink () {
           <Image src={logo2} alt="Logo" className="w-20 h-20" />
         </div>
         <div className="flex items-center">
+        <Link href="/products"
+            className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"
+          >
+            Products
+          </Link>
           <Link href="/wishlist"
-            className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300"
+            className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"
           >
             Wishlist
           </Link>
@@ -24,11 +29,11 @@ export default function NavbarLink () {
               About
             </div>
           </Link>
-          <button
-            className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4"
-          >
-            Logout
-          </button>
+          <Link href="/login">
+            <div className="bg-emerald-700 hover:bg-white hover:text-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ml-4">
+              Logout
+            </div>
+          </Link>
         </div>
       </div>
     </nav>

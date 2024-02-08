@@ -1,8 +1,27 @@
-import ProductsType from "@/app/types/product";
-async function product(slug: string): Promise<ProductsType[]> {
-  const response = await fetch(`http://localhost:3001/products?slug=${slug}`);
-  return response.json();
+import { getDetails } from "@/models/products";
+import Head from 'next/head';
+import type { Metadata, ResolvingMetadata } from 'next';
+
+type ProductsType = {
+  params: { slug: string }
 }
+
+export async function generateMetadata(
+  { params }: ProductsType,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug;
+
+  // fetch data
+  const productData = await getDetails(slug);
+  const product = productData[0];
+
+  return {
+    title: product.name + " || TheBeautyShop®"
+  };
+}
+
 async function DetailPage({ params }: { params: { slug: string } }) {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -11,13 +30,14 @@ async function DetailPage({ params }: { params: { slug: string } }) {
     }).format(price);
   };
 
-  const productData = await product(params.slug);
+  const productData = await getDetails(params.slug);
   const data = productData[0];
-  // console.log(productData,"<<< productData")
-  // console.log(data, "<<<< data");
 
   return (
     <div className="bg-white">
+      <Head>
+        <title>{`TheBeautyShop® ${data.name}`}</title>
+      </Head>
       <div className="container mx-auto mt-28">
         <h1 className="text-3xl font-bold text-center text-emerald-700">
           {data.name}

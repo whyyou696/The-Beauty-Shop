@@ -7,4 +7,9 @@ export default async function getProducts(): Promise<ProductsType[]> {
     return response.json();
 }
 
+export async function getDetails(slug: string): Promise<ProductsType[]> {
+  const response = await fetch(`http://localhost:3001/products?slug=${slug}`);
+  return response.json();
+}
+
 

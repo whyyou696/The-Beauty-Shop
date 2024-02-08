@@ -18,7 +18,6 @@ const DetailPage = () => {
 
   const fetchProduct = async (id: number) => {
     try {
-      // Ganti URL berikut dengan URL API yang sesuai
       const response = await fetch(`http://localhost:3001/products/${id}`, {
         cache: 'no-store',
       });

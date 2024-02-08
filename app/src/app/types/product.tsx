@@ -13,3 +13,4 @@ interface ProductsType {
   }
 
 export default ProductsType
+

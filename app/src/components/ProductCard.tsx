@@ -2,19 +2,23 @@
 import { FaShoppingCart, FaInfoCircle } from "react-icons/fa";
 import { useState } from "react";
 import Link from 'next/link';
-import ProductsType from "@/app/model/product";
-
+import ProductsType from "@/app/types/product";
 
 const ProductCard = ({ product }: { product: ProductsType }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const handleAddToCart = () => {
-    // Simpan produk ke dalam local storage
     const existingWishlist = localStorage.getItem("wishlist");
     const wishlist = existingWishlist ? JSON.parse(existingWishlist) : [];
     localStorage.setItem("wishlist", JSON.stringify([...wishlist, product]));
-
     setIsAddedToCart(true);
+  };
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR' 
+    }).format(price);
   };
 
   return (
@@ -27,7 +31,7 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
       <div className="product-details p-4 flex flex-col justify-content">
         <h2 className="product-name text-lg font-semibold text-emerald-400">{product.name}</h2>
         <p className="product-excerpt text-sm text-gray-600 mb-4">{product.excerpt}</p>
-        <p className="product-price text-emerald-400 font-semibold mb-2">Rp.{product.price}</p>
+        <p className="product-price text-emerald-400 font-semibold mb-2">{formatPrice(product.price)}</p>
         <div className="flex justify-between mb-2">
           <Link href={`/detail/${product.id}`}>
             <button className="see-details-btn bg-emerald-700 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-300 flex items-center justify-center">

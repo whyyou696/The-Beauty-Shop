@@ -1,16 +1,15 @@
 import CarouselHome from "@/components/CarouselHome";
-import Footer from "@/components/Footer";
-import NavbarLink from "@/components/NavbarLink";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import getProducts from "@/middlewares/products";
-import HeroSection from "@/components/HeroSection"; // Import komponen ImageGallery
+import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
+import NavbarLink from "@/components/NavbarLink";
+import Footer from "@/components/Footer";
 
 export default async function Home() {
   const products = await getProducts();
   const limitedProducts = products.slice(0, 4);
-
   return (
     <>
       <div className="bg-white">
@@ -35,8 +34,8 @@ export default async function Home() {
         <HeroSection />
       </div>
       <div className="bg-white p-6">
-        <Footer />
       </div>
+      <Footer/>
     </>
   );
 }

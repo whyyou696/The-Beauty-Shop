@@ -4,9 +4,8 @@ import logo from "@/assets/logo1.png";
 
 export default function Login() {
   return (
-    <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-l from-emerald-400 via-emerald-200 to-emerald-100">
+    <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-100">
       <form className="login-form bg-white p-20 rounded shadow-md backdrop-blur-md rounded">
-        {/* Logo di sini */}
         <div className="mb-4 flex justify-center">
           <Image
             src={logo}
@@ -56,7 +55,7 @@ export default function Login() {
           Don't have an account?{" "}
         </p>
         
-        <Link href="/">
+        <Link href="/register">
         <p className="text-center text-emerald-800 text-sm hover:text-emerald-500">
           Register Now.
           </p>

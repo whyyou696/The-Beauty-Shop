@@ -1,12 +1,10 @@
 'use client';
-import Footer from "@/components/Footer";
-import NavbarLink from "@/components/NavbarLink";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-interface Products {
-  id: string;
+interface ProductsWishlist {
+  id: number;
   name: string;
   price: number;
   thumbnail: string;
@@ -20,7 +18,7 @@ interface Products {
 }
 
 const Wishlist = () => {
-  const [wishlist, setWishlist] = useState<Products[]>([]);
+  const [wishlist, setWishlist] = useState<ProductsWishlist[]>([]);
 
   useEffect(() => {
     const existingWishlist = localStorage.getItem("wishlist");
@@ -29,7 +27,7 @@ const Wishlist = () => {
     }
   }, []);
 
-  const removeFromWishlist = (productId: string) => {
+  const removeFromWishlist = (productId: number) => {
     const updatedWishlist = wishlist.filter((product) => product.id !== productId);
     setWishlist(updatedWishlist);
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
@@ -37,7 +35,6 @@ const Wishlist = () => {
 
   return (
     <>
-      <NavbarLink/>
       <div className="bg-white flex flex-col items-center justify-center min-h-screen mt-28">
         <h1 className="text-3xl font-bold mb-4 text-emerald-700">Wishlist</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -67,14 +64,13 @@ const Wishlist = () => {
                   onClick={() => removeFromWishlist(product.id)}
                   className="bg-emerald-700 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-300"
                 >
-                  Hapus
+                  Delete
                 </button>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <Footer/>
     </>
   );
 };

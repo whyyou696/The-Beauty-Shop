@@ -14,7 +14,7 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
     setIsAddedToCart(true);
   };
 
-  const formatPrice = (price: number) => {
+ const formatPrice = (price: number) => {
     return new Intl.NumberFormat('id-ID', {
       style: 'currency',
       currency: 'IDR' 
@@ -33,7 +33,7 @@ const ProductCard = ({ product }: { product: ProductsType }) => {
         <p className="product-excerpt text-sm text-gray-600 mb-4">{product.excerpt}</p>
         <p className="product-price text-emerald-400 font-semibold mb-2">{formatPrice(product.price)}</p>
         <div className="flex justify-between mb-2">
-          <Link href={`/detail/${product.id}`}>
+          <Link href={`/products/${product.slug}`}>
             <button className="see-details-btn bg-emerald-700 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-400 transition duration-300 flex items-center justify-center">
               <FaInfoCircle className="mr-2" />
               <span>See Details</span>

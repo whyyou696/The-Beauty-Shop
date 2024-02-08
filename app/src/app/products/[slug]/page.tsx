@@ -1,12 +1,5 @@
-interface Product {
-  name: string;
-  slug: string;
-  price: number;
-  description: string;
-  images: string[];
-}
-
-async function product(slug: string): Promise<Product[]> {
+import ProductsType from "@/app/types/product";
+async function product(slug: string): Promise<ProductsType[]> {
   const response = await fetch(`http://localhost:3001/products?slug=${slug}`);
   return response.json();
 }

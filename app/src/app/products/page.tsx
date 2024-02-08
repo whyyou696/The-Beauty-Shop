@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
-import getProducts from "@/middlewares/products";
+import getProducts from "@/models/products";
 import ProductsType from "@/app/types/product";
 import LoaderProducts from "./loader";
 

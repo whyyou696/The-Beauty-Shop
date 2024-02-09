@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import LoaderProducts from "./loader";
-import ProductsType from "@/app/types/product";
+import ProductsType from "@/app/types/interface";
 
 
 export default function ProductsPage() {
@@ -15,7 +15,7 @@ export default function ProductsPage() {
 
   useEffect(() => {
     async function fetchProducts() {
-      const fetchedProducts =await fetch("http://localhost:3000/api/products", {
+      const fetchedProducts =await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/products", {
         cache: "no-store"
       })
       const products = await fetchedProducts.json() as ProductsType[];

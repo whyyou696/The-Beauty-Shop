@@ -6,15 +6,12 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import NavbarLink from "@/components/NavbarLink";
 import Footer from "@/components/Footer";
-import ProductsType from "./types/product";
-
+import ProductsType from "./types/interface";
 export default async function Home() {
-
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/products", {
     cache: "no-store"
   })
   const products = await res.json() as ProductsType[];
-
   return (
     <>
       <div className="bg-white">
@@ -43,4 +40,4 @@ export default async function Home() {
       <Footer/>
     </>
   );
-}
+};

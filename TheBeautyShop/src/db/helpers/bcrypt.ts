@@ -1,11 +1,10 @@
-import bcrypt from 'bcryptjs';
+import bcrypt from 'bcrypt';
 
-export const hashText = (text: string) => {
+export const hashPassword = (text: string) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(text, salt);
     return hash;
 };
-
-export const compareTextWithHash = (text: string, hash: string) => {
+export const comparePassword = (text: string, hash: string) => {
     return bcrypt.compareSync(text, hash);
 };

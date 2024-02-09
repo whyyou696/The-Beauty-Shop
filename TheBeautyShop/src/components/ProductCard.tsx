@@ -2,7 +2,7 @@
 import { FaShoppingCart, FaInfoCircle } from "react-icons/fa";
 import { useState } from "react";
 import Link from 'next/link';
-import ProductsType from "@/app/types/product";
+import ProductsType from "@/app/types/interface";
 
 const ProductCard = ({ product }: { product: ProductsType }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);

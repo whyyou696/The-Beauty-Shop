@@ -15,6 +15,7 @@ export default function Register() {
         <div className="mb-4">
           <label
             htmlFor="username"
+            
             className="block text-emerald-700 text-sm font-bold mb-2"
           >
             Username

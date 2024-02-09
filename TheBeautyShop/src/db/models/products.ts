@@ -1,5 +1,5 @@
 
-import ProductsType from "@/app/types/product";
+import ProductsType from "@/app/types/interface";
 import { database } from "../config/mongodb";
 
 export async function getProducts(): Promise<ProductsType[]> {

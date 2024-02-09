@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo1.png";
+import { handleLogin } from "../actions/users";
 
 export default function Login() {
   return (
     <div className="login-form-container flex items-center justify-center min-h-screen bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-100">
-      <form className="login-form bg-white p-20 rounded shadow-md backdrop-blur-md rounded">
+      <form className="login-form bg-white p-20 rounded shadow-md backdrop-blur-md rounded" action={handleLogin}>
         <div className="mb-4 flex justify-center">
           <Image
             src={logo}
@@ -18,15 +19,15 @@ export default function Login() {
         </h1>
         <div className="mb-4 mt-10">
           <label
-            htmlFor="email"
+            htmlFor="username"
             className="block text-emerald-700 text-sm font-bold mb-2"
           >
-            Email
+            Username
           </label>
           <input
-            type="email"
-            id="email"
-            name="email"
+            type="username"
+            id="username"
+            name="username"
             className="border rounded w-full py-2 px-3 text-white"
           />
         </div>

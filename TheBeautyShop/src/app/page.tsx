@@ -1,7 +1,6 @@
 import CarouselHome from "@/components/CarouselHome";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
-import { getProducts } from "@/db/models/products";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import NavbarLink from "@/components/NavbarLink";

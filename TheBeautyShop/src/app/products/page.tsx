@@ -4,7 +4,6 @@ import ProductCard from "@/components/ProductCard";
 import LoaderProducts from "./loader";
 import ProductsType from "@/app/types/interface";
 
-
 export default function ProductsPage() {
   const [products, setProducts] = useState<ProductsType[]>([]);
   const [displayedProducts, setDisplayedProducts] = useState<ProductsType[]>([]);

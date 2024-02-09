@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { database } from "@/db/config/mongodb";
 
-import { NewUser } from "@/app/types/type";
+import { NewUser, User } from "@/app/types/type";
 import { hashPassword } from "../helpers/bcrypt";
 
 export const Users = z.object({
@@ -32,6 +32,12 @@ class UsersModel {
           ...newUser,
           password: hashPassword(newUser.password),
         });
+      }
+
+      static async findUserbyUsername(username: string) {
+        return (await this.getCollection().findOne({
+          username: username,
+        })) as User | null;
       }
 }
 

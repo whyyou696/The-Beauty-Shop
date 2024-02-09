@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo1.png";
+import { handleRegister } from "../actions/users";
 
 export default function Register() {
   return (
     <div className="register-form-container flex items-center justify-center min-h-screen bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-100">
-      <form className="register-form bg-white p-20 rounded shadow-xl rounded ">
+      <form className="register-form bg-white p-20 rounded shadow-xl rounded" action={handleRegister}>
         <div className="mb-4 flex justify-center">
           <Image src={logo} alt="Logo" className="w-20 h-20" />
         </div>
@@ -14,8 +15,22 @@ export default function Register() {
         </h2>
         <div className="mb-4">
           <label
+            htmlFor="name"
+            className="block text-emerald-700 text-sm font-bold mb-2"
+          >
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="border rounded w-full py-2 px-3 text-white"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
             htmlFor="username"
-            
             className="block text-emerald-700 text-sm font-bold mb-2"
           >
             Username

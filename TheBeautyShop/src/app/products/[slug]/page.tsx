@@ -8,10 +8,7 @@ export async function generateMetadata(
   { params }: ProductsType,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // read route params
   const slug = params.slug;
-
-  // fetch data
   const productData = await Details(slug);
   const product = productData[0];
 
@@ -19,7 +16,6 @@ export async function generateMetadata(
     title: product.name + " || TheBeautyShop®",
   };
 }
-
 async function Details(slug: string) {
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/products/" + slug, {
     cache: "no-store",
@@ -29,7 +25,6 @@ async function Details(slug: string) {
 
 async function DetailPage({ params }: { params: { slug: string } }) {
   const productData = await Details(params.slug);
-  // console.log(productData, "<<< data");
 
   const data = productData[0]
   const formatPrice = (price: number) => {

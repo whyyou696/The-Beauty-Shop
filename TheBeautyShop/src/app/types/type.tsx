@@ -7,7 +7,6 @@ export type User = {
     email: string;
     password: string;
   };
-
 export type NewUser = Omit <User, "_id">
 export type Response<T> = {
     message?: string;

@@ -16,17 +16,16 @@ export async function handleLogin(formData: FormData) {
   });
 
   if (!res.ok) {
-    throw new Error("Login Failed");
+    redirect ("/login");
   }
 
   const { access_token } = await res.json();
 
   cookies().set("Authorization", `Bearer ${access_token}`);
-  redirect("/products");
+  redirect("/");
 }
 
 export async function handleRegister(formData: FormData) {
-  "use server";
   const userInput = {
     username: formData.get("username"),
     password: formData.get("password"),

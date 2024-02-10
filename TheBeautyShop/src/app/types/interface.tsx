@@ -12,5 +12,4 @@ interface ProductsType {
   createdAt: Date;
   updatedAt: Date;
 }
-
 export default ProductsType;

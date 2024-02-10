@@ -13,7 +13,6 @@ export default async function Home() {
   });
   const products = (await res.json()) as ProductsType[];
   const featuredProducts = products.slice(0, 4);
-
   return (
     <>
       <div className="bg-white">

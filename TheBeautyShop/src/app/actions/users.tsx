@@ -1,14 +1,12 @@
 "use server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import Swal from 'sweetalert2';
 
 export async function handleLogin(formData: FormData) {
   const user = {
     username: formData.get("username"),
     password: formData.get("password"),
   };
-
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/users/login", {
     method: "POST",
     body: JSON.stringify(user),
@@ -18,39 +16,17 @@ export async function handleLogin(formData: FormData) {
   });
 
   if (!res.ok) {
-    const { error } = await res.json();
-    if (error === "user_not_found") {
-      Swal.fire({
-        icon: 'error',
-        title: 'User Not Found',
-        text: 'The username entered does not exist.',
-      });
-    } else if (error === "incorrect_password") {
-      Swal.fire({
-        icon: 'error',
-        title: 'Incorrect Password',
-        text: 'The password entered is incorrect.',
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Login Failed',
-        text: 'An error occurred while trying to login.',
-      });
-    }
-    redirect ("/login");
-  } else {
-    const { access_token } = await res.json();
-    cookies().set("Authorization", `Bearer ${access_token}`);
-    Swal.fire({
-      icon: 'success',
-      title: 'Login Successful',
-      text: 'You have been successfully logged in.',
-    });
-    redirect("/");
+    throw new Error("Login Failed");
   }
+
+  const { access_token } = await res.json();
+
+  cookies().set("Authorization", `Bearer ${access_token}`);
+  redirect("/");
 }
+
 export async function handleRegister(formData: FormData) {
+  "use server";
   const userInput = {
     username: formData.get("username"),
     password: formData.get("password"),
@@ -74,10 +50,5 @@ export async function handleRegister(formData: FormData) {
 
 export async function handleLogout() {
   cookies().delete("Authorization");
-  Swal.fire({
-    icon: 'success',
-    title: 'Logged Out',
-    text: 'You have been successfully logged out.',
-  });
   redirect("/login");
 }

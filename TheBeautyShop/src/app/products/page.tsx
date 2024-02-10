@@ -47,7 +47,7 @@ export default function ProductsPage() {
   return (
     <>
       <div className="bg-white object-center mt-28">
-        <h1 className="text-6xl font-bold mb-4 text-emerald-700 text-center">Products</h1>
+        <h1 className="text-8xl font-bold mb-4 text-emerald-700 text-center">Products</h1>
         <p className="text-lg mb-4 text-gray-600 text-center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend mi sit amet magna posuere, vel fermentum felis lacinia. Donec vel arcu eget tortor dictum maximus.
         </p>

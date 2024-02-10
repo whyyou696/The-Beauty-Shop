@@ -26,7 +26,6 @@ export default function NavbarLink () {
       }
     } catch (error) {
       console.error("Logout failed:", error);
-      // Handle any error that occurs during logout
       Swal.fire('Error', 'Logout failed', 'error');
     }
   };

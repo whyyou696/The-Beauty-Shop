@@ -1,4 +1,3 @@
-
 import ProductsType from "@/app/types/interface";
 import { database } from "../config/mongodb";
 

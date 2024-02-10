@@ -3,13 +3,13 @@ import Link from 'next/link';
 export default function AboutPage() {
   return (
     <>
-    <div className="flex items-center justify-center min-h-screen via-emerald-200 to-emerald-100 mt-16 bg-gradient-to-r from-white to-emerald-200">
+    <div className="flex items-center justify-center min-h-screen via-emerald-200 to-emerald-100 mt-16 bg-emerald-700">
       <div className="container mx-auto flex">
         <div className="w-1/2 border-r border-white pr-8">
           <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="About Us" className="w-full h-auto" />
         </div>
         <div className="w-1/2 p-8 bg-">
-          <h1 className="text-3xl font-bold mb-4 text-emerald-700">About Us</h1>
+          <h1 className="text-3xl font-bold mb-4 text-white mb-10">About Us</h1>
           <p className="text-lg mb-4 text-white">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend mi sit amet magna posuere, vel fermentum felis lacinia. Donec vel arcu eget tortor dictum maximus.
           </p>
